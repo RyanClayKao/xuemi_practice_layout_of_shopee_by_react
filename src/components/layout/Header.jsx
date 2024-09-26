@@ -39,7 +39,7 @@ const Toolbar = styled.div`
   }
 `;
 
-const Flex = styled.div`
+const Box = styled.div`
   display: flex;
   align-items: center;
 `;
@@ -67,7 +67,7 @@ export default function Header() {
           <Link to="/">
             <img src={Logo} alt="logo" height="48" />
           </Link>
-          <Flex>
+          <Box>
             <Search
               style={{ marginRight: 8}}
               placeholder="在商城搜尋"
@@ -77,7 +77,7 @@ export default function Header() {
             <Link to="/cart">
               <ShoppingCartOutlined style={{ fontSize: 28, color: "white" }} />
             </Link>
-          </Flex>
+          </Box>
         </StyledHeaderSection>
       </Container>
     </StyledHeader>
