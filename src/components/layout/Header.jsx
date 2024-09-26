@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import styled from "styled-components";
+import Container from "../common/Container";
 
 const StyledHeader = styled.header`
   background-color: #d1011c;
@@ -8,5 +9,9 @@ const StyledHeader = styled.header`
 `;
 
 export default function Header() {
-  return <StyledHeader>This is header.</StyledHeader>;
+  return (
+    <StyledHeader>
+      <Container>This is header.</Container>
+    </StyledHeader>
+  );
 }
