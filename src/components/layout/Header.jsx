@@ -44,11 +44,11 @@ const Box = styled.div`
   align-items: center;
 `;
 
-export default function Header() {
+export default function Header({...props}) {
   function onSearch() {}
 
   return (
-    <StyledHeader>
+    <StyledHeader {...props}>
       <Container>
         <StyledHeaderSection>
           <Navigator>

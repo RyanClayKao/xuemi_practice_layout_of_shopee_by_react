@@ -8,9 +8,23 @@ const PageHeader = styled(Header)`
   ${(props) =>
     props.fixed &&
     css`
+      z-index: 16;
       position: fixed;
     `}
 `;
+
+// function PageHeader({fixed}){
+//   let styleObj = {};
+
+//   if (fixed){
+//     styleObj = {
+//       zIndex: 16,
+//       position: "fixed",
+//     }
+//   }
+
+//   return <Header style={styleObj}/>
+// }
 
 export default function DefaultLayout({ fixedHeader, children }) {
   return (

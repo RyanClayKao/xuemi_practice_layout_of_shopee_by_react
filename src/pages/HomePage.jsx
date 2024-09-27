@@ -7,6 +7,7 @@ import { Carousel } from "antd";
 import Banner1 from "../images/banner/banner1.jpg";
 import Banner2 from "../images/banner/banner2.jpg";
 import Banner3 from "../images/banner/banner3.jpg";
+import ProductCard from "../components/product/ProductCard";
 
 const BannerBox = styled.div`
   display: flex;
@@ -50,6 +51,30 @@ const BannerContainer = styled.div`
   padding: 1px;
 `;
 
+const CustomerContainer = styled.div`
+  margin-bottom: 48px;
+`;
+
+const ProductCollectionContainer = styled.div`
+  margin: 0px -4px 48px -4px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+`;
+
+const ProductContainer = styled.div`
+  padding: 4px;
+  width: 100%;
+
+  @media(min-width: 577px){
+    width: 50%;
+  }
+
+  @media(min-width: 769px){
+    width: 16.66%;
+  }
+`;
+
 const Image = styled.div`
   width: 100%;
   height: ${(props) => props.height}px;
@@ -60,7 +85,7 @@ const Image = styled.div`
 
 export default function HomePage() {
   return (
-    <DefaultLayout fixedHeader>
+    <DefaultLayout fixedHeader="true">
       <ClearFix />
       <BannerBox>
         <BannerCarouselContainer>
@@ -90,7 +115,93 @@ export default function HomePage() {
           <BannerFeatureColumn>假一賠二</BannerFeatureColumn>
         </BannerFeatureContainer>
       </BannerBox>
-      <Image height={100} url={Banner3} />
+      <CustomerContainer>
+        <Link to="/advertising">
+          <Image height={100} url={Banner3} />
+        </Link>
+      </CustomerContainer>
+      <ProductCollectionContainer>
+        <ProductContainer>
+          <Link to="/p001">
+            <ProductCard title="foo" coverUrl={Banner1} salePrices={[100, 200]} />
+          </Link>
+        </ProductContainer>
+        <ProductContainer>
+          <Link to="/p001">
+            <ProductCard title="foo" coverUrl={Banner2} salePrices={[100, 200]} listPrices={[200, 299]} />
+          </Link>
+        </ProductContainer>
+        <ProductContainer>
+          <Link to="/p001">
+            <ProductCard title="foo" coverUrl={Banner3} salePrices={[100, 200]} listPrices={[200, 299]} />
+          </Link>
+        </ProductContainer>
+        <ProductContainer>
+          <Link to="/p001">
+            <ProductCard title="foo" coverUrl={Banner1} salePrices={[100, 200]} listPrices={[200, 299]} />
+          </Link>
+        </ProductContainer>
+        <ProductContainer>
+          <Link to="/p001">
+            <ProductCard title="foo" coverUrl={Banner2} salePrices={[100, 200]} listPrices={[200, 299]} />
+          </Link>
+        </ProductContainer>
+        <ProductContainer>
+          <Link to="/p001">
+            <ProductCard title="foo" coverUrl={Banner3} salePrices={[100, 200]} listPrices={[200, 299]} />
+          </Link>
+        </ProductContainer>
+        <ProductContainer>
+          <Link to="/p001">
+            <ProductCard title="foo" coverUrl={Banner1} salePrices={[100, 200]} listPrices={[200, 299]} />
+          </Link>
+        </ProductContainer>
+        <ProductContainer>
+          <Link to="/p001">
+            <ProductCard title="foo" coverUrl={Banner2} salePrices={[100, 200]} listPrices={[200, 299]} />
+          </Link>
+        </ProductContainer>
+        <ProductContainer>
+          <Link to="/p001">
+            <ProductCard title="foo" coverUrl={Banner3} salePrices={[100, 200]} listPrices={[200, 299]} />
+          </Link>
+        </ProductContainer>
+        <ProductContainer>
+          <Link to="/p001">
+            <ProductCard title="foo" coverUrl={Banner1} salePrices={[100, 200]} listPrices={[200, 299]} />
+          </Link>
+        </ProductContainer>
+        <ProductContainer>
+          <Link to="/p001">
+            <ProductCard title="foo" coverUrl={Banner2} salePrices={[100, 200]} listPrices={[200, 299]} />
+          </Link>
+        </ProductContainer>
+        <ProductContainer>
+          <Link to="/p001">
+            <ProductCard title="foo" coverUrl={Banner3} salePrices={[100, 200]} listPrices={[200, 299]} />
+          </Link>
+        </ProductContainer>
+        <ProductContainer>
+          <Link to="/p001">
+            <ProductCard title="foo" coverUrl={Banner1} salePrices={[100, 200]} listPrices={[200, 299]} />
+          </Link>
+        </ProductContainer>
+        <ProductContainer>
+          <Link to="/p001">
+            <ProductCard title="foo" coverUrl={Banner2} salePrices={[100, 200]} listPrices={[200, 299]} />
+          </Link>
+        </ProductContainer>
+        <ProductContainer>
+          <Link to="/p001">
+            <ProductCard title="foo" coverUrl={Banner3} salePrices={[100, 200]} listPrices={[200, 299]} />
+          </Link>
+        </ProductContainer>
+        <ProductContainer>
+          <Link to="/p001">
+            <ProductCard title="foo" coverUrl={Banner1} salePrices={[100, 200]} listPrices={[200, 299]} />
+          </Link>
+        </ProductContainer>
+      </ProductCollectionContainer>
     </DefaultLayout>
   );
 }
