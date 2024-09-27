@@ -8,6 +8,8 @@ import Banner1 from "../images/banner/banner1.jpg";
 import Banner2 from "../images/banner/banner2.jpg";
 import Banner3 from "../images/banner/banner3.jpg";
 import ProductCard from "../components/product/ProductCard";
+import { useContext } from "react";
+import { AuthContext } from "../components/auth/AuthContext";
 
 const BannerBox = styled.div`
   display: flex;
@@ -84,9 +86,12 @@ const Image = styled.div`
 `;
 
 export default function HomePage() {
+  const authCtx = useContext(AuthContext);
+
   return (
     <DefaultLayout fixedHeader="true">
       <ClearFix />
+      {authCtx.isLogin && <h1>歡迎回來</h1>}
       <BannerBox>
         <BannerCarouselContainer>
           <Carousel autoplay>

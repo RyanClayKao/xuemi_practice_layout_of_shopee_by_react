@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useContext } from "react";
 import styled from "styled-components";
 import Container from "../common/Container";
 import Logo from "../../images/logo.png";
@@ -10,6 +11,7 @@ const { Search } = Input;
 // ant design icons
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../auth/AuthContext";
 
 const StyledHeader = styled.header`
   background-color: #d1011c;
@@ -45,6 +47,8 @@ const Box = styled.div`
 `;
 
 export default function Header({...props}) {
+  const authCtx = useContext(AuthContext);
+
   function onSearch() {}
 
   return (
@@ -60,7 +64,7 @@ export default function Header({...props}) {
           <Toolbar>
             <a href="#">通知</a>
             <a href="#">幫助中心</a>
-            <a href="#">帳號</a>
+            {authCtx.isLogin ? <a href="#">登出</a> : <a href="#">登入/註冊</a>}
           </Toolbar>
         </StyledHeaderSection>
         <StyledHeaderSection>
