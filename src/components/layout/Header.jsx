@@ -69,7 +69,7 @@ export default function Header({...props}) {
         </StyledHeaderSection>
         <StyledHeaderSection>
           <Link to="/">
-            <img src={Logo} alt="logo" height="48" />
+            <img src={Logo} alt="logo" height="48" style={{height: "48px"}} />
           </Link>
           <Box>
             <Search

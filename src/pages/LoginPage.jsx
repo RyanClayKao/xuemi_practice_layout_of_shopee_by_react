@@ -1,9 +1,7 @@
 import styled from "styled-components";
 import DefaultLayout from "../components/layout/DefaultLayout";
 import Container from "../components/common/Container";
-import { Input, Button } from "antd";
-
-import { UserOutlined } from '@ant-design/icons';
+import LoginForm from "../components/auth/LoginForm";
 
 import ShoppingImage from "../images/shopping.jpg";
 
@@ -17,15 +15,7 @@ const StyledLoginContainer = styled(Container)`
   padding: 48px 0px;
 `
 
-const LoginForm = () => {
-  return (
-    <div>
-      <Input size="large" placeholder="請輸入帳號" prefix={<UserOutlined />} />
-      <Input size="large" placeholder="請輸入密碼" prefix={<UserOutlined />} />
-      <Button>登入</Button>
-    </div>
-  )
-}
+
 
 export default function LoginPage() {
   return (
