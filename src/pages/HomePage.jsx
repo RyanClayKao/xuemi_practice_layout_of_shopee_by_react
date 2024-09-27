@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import DefaultLayout from "../components/layout/DefaultLayout";
 import ClearFix from "../components/common/ClearFix";
@@ -10,12 +11,13 @@ import Banner3 from "../images/banner/banner3.jpg";
 const BannerBox = styled.div`
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 24px;
 `;
 
 const BannerCarouselContainer = styled.div`
   width: 100%;
   padding: 1px;
-  @media(min-width: 769px){
+  @media (min-width: 769px) {
     width: 66.67%;
   }
 `;
@@ -23,14 +25,29 @@ const BannerCarouselContainer = styled.div`
 const BannerSectionContainer = styled.div`
   width: 100%;
   /* padding: 1px; */
-  @media(min-width: 769px){
+  @media (min-width: 769px) {
     width: 33.33%;
   }
 `;
 
+const BannerFeatureContainer = styled.div`
+  width: 100%;
+  display: flex;
+  background-color: white;
+  padding: 8px 0px;
+  border-left: solid 1px rgba(0, 0, 0, 0.1);
+  border-right: solid 1px rgba(0, 0, 0, 0.1);
+  border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+`;
+
+const BannerFeatureColumn = styled.div`
+  width: 33.33%;
+  text-align: center;
+`;
+
 const BannerContainer = styled.div`
   width: 100%;
-  padding: 1px;  
+  padding: 1px;
 `;
 
 const Image = styled.div`
@@ -48,9 +65,15 @@ export default function HomePage() {
       <BannerBox>
         <BannerCarouselContainer>
           <Carousel autoplay>
-            <Image height={200} url={Banner1}></Image>
-            <Image height={200} url={Banner2}></Image>
-            <Image height={200} url={Banner3}></Image>
+            <Link to="/p001">
+              <Image height={200} url={Banner1}></Image>
+            </Link>
+            <Link to="/p001">
+              <Image height={200} url={Banner2}></Image>
+            </Link>
+            <Link to="/p001">
+              <Image height={200} url={Banner3}></Image>
+            </Link>
           </Carousel>
         </BannerCarouselContainer>
         <BannerSectionContainer>
@@ -61,7 +84,13 @@ export default function HomePage() {
             <Image height={100} url={Banner2}></Image>
           </BannerContainer>
         </BannerSectionContainer>
+        <BannerFeatureContainer>
+          <BannerFeatureColumn>15天鑑賞期</BannerFeatureColumn>
+          <BannerFeatureColumn>退貨無負擔</BannerFeatureColumn>
+          <BannerFeatureColumn>假一賠二</BannerFeatureColumn>
+        </BannerFeatureContainer>
       </BannerBox>
+      <Image height={100} url={Banner3} />
     </DefaultLayout>
   );
 }
