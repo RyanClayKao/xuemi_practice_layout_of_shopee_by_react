@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 const initialState = {
   isLogin: false,
@@ -8,11 +8,24 @@ const initialState = {
 export const AuthContext = createContext(initialState);
 
 export default function AuthContextProvider({ children }) {
-  const ctxValue = {
-    ...initialState,
-  }
+  const [isLogin, setIsLogin] = useState(initialState.isLogin);
 
   return (
-    <AuthContext.Provider value={ctxValue}>{children}</AuthContext.Provider>
+    <AuthContext.Provider
+      value={{
+        isLogin,
+        loginFn: async (username, password) => {
+          if (username === "ryan") {
+            setIsLogin(true);
+            return { token: "good_token" };
+          }
+
+          setIsLogin(false);
+          return { token: null, error: "invalid password" };
+        },
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
   );
 }
