@@ -10,7 +10,7 @@ const { Search } = Input;
 
 // ant design icons
 import { ShoppingCartOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../auth/AuthContext";
 
 const StyledHeader = styled.header`
@@ -46,10 +46,16 @@ const Box = styled.div`
   align-items: center;
 `;
 
-export default function Header({...props}) {
-  const authCtx = useContext(AuthContext);
+export default function Header({ ...props }) {
+  const navigate = useNavigate();
+  const { isLogin, logoutFn} = useContext(AuthContext);
 
   function onSearch() {}
+
+  function handleLogout(){
+    logoutFn();
+    navigate('/login', { replace: true});
+  }
 
   return (
     <StyledHeader {...props}>
@@ -64,16 +70,23 @@ export default function Header({...props}) {
           <Toolbar>
             <a href="#">通知</a>
             <a href="#">幫助中心</a>
-            {authCtx.isLogin ? <Link to="/logout">登出</Link> : <Link to="/login">登入/註冊</Link>}
+            {isLogin ? (
+              <div>                
+                <Link to="/user">Ryan</Link>
+                <span onClick={handleLogout}>登出</span>
+              </div>
+            ) : (
+              <Link to="/login">登入/註冊</Link>
+            )}
           </Toolbar>
         </StyledHeaderSection>
         <StyledHeaderSection>
           <Link to="/">
-            <img src={Logo} alt="logo" height="48" style={{height: "48px"}} />
+            <img src={Logo} alt="logo" height="48" style={{ height: "48px" }} />
           </Link>
           <Box>
             <Search
-              style={{ marginRight: 8}}
+              style={{ marginRight: 8 }}
               placeholder="在商城搜尋"
               onSearch={onSearch}
               enterButton

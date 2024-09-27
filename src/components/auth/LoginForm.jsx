@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { Input, Button } from "antd";
+import { Input, Button, message } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { AuthContext } from "./AuthContext";
 
@@ -11,8 +11,7 @@ const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  useEffect(() => {
-    console.log(isLogin);
+  useEffect(() => {    
     if (isLogin){
       navigate("/");
     }
@@ -20,7 +19,11 @@ const LoginForm = () => {
 
   function handleLogin() {
     // call login api
-    loginFn(username, password).then(() => {
+    loginFn(username, password).then(({token, error}) => {
+      if (!token){
+        message.error(error);
+        return;
+      }
       navigate("/");
     });
   }
