@@ -7,18 +7,18 @@ import ScrollToTop from "../common/ScrollToTop";
 
 const PageHeader = styled(Header)`
   ${(props) =>
-    props.fixed &&
+    (props.fixed && props.fixed === "true" ) &&
     css`
       z-index: 16;
       position: fixed;
     `}
 `;
 
-export default function DefaultLayout({ fixedHeader, children }) {
+export default function DefaultLayout({ fixedHeader = false, children }) {
   return (
     <div>
       <ScrollToTop />
-      <PageHeader fixed={fixedHeader} />
+      <PageHeader fixed={fixedHeader.toString()} />
       <Container>{children}</Container>
       <Footer />
     </div>

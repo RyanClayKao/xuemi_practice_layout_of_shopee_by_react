@@ -64,7 +64,7 @@ export default function Header({...props}) {
           <Toolbar>
             <a href="#">通知</a>
             <a href="#">幫助中心</a>
-            {authCtx.isLogin ? <a href="#">登出</a> : <a href="#">登入/註冊</a>}
+            {authCtx.isLogin ? <Link to="/logout">登出</Link> : <Link to="/login">登入/註冊</Link>}
           </Toolbar>
         </StyledHeaderSection>
         <StyledHeaderSection>
