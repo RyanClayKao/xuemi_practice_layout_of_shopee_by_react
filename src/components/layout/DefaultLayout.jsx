@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import Header from "./Header";
 import Footer from "./Footer";
 import Container from "../common/Container";
+import ScrollToTop from "../common/ScrollToTop";
 
 const PageHeader = styled(Header)`
   ${(props) =>
@@ -13,22 +14,10 @@ const PageHeader = styled(Header)`
     `}
 `;
 
-// function PageHeader({fixed}){
-//   let styleObj = {};
-
-//   if (fixed){
-//     styleObj = {
-//       zIndex: 16,
-//       position: "fixed",
-//     }
-//   }
-
-//   return <Header style={styleObj}/>
-// }
-
 export default function DefaultLayout({ fixedHeader, children }) {
   return (
     <div>
+      <ScrollToTop />
       <PageHeader fixed={fixedHeader} />
       <Container>{children}</Container>
       <Footer />
