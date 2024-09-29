@@ -10,6 +10,7 @@ import Banner3 from "../images/banner/banner3.jpg";
 import ProductCard from "../components/product/ProductCard";
 import { useContext } from "react";
 import { AuthContext } from "../components/auth/AuthContext";
+import PopupModal from "../components/common/PopupModal";
 
 const BannerBox = styled.div`
   display: flex;
@@ -90,6 +91,7 @@ export default function HomePage() {
 
   return (
     <DefaultLayout fixedHeader="true">
+      <PopupModal />
       <ClearFix />
       {authCtx.isLogin && <h1>歡迎回來</h1>}
       <BannerBox>
